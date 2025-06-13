@@ -38,8 +38,9 @@
 	
 	recursion:
 		addi $t0, $t0, -1		# (n-1)
-		addi $sp, $sp, -4		# Hacemos lugar para $t0
-		addi $sp, $sp, -4		# LINEA MAGICA, LA BORRAS Y MUERE EL CODIGO
+		# Como estamos en la recursividad, esta necesita sus propios parametros de entrada y salida
+		addi $sp, $sp, -4		# Lugar para el parametro de salida
+		addi $sp, $sp, -4		# Lugar para el parametro de entrada
 		sw $t0, 0($sp)			# Guardamos (n-1) en la pila
 		
 		jal funcion			# Recursion
